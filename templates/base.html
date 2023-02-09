@@ -1,0 +1,27 @@
+{% load static %}
+
+<head>
+    <title>{% block title %} {% endblock %}</title>
+    {#TODO <link href="{% static css/base.css %}" rel="stylesheet">#}
+</head>
+
+{% block navbar %}
+    <ul>
+        <li><a href="{% url "home" %}">My Files</a></li>
+        <li><a href="{% url "upload_file" %}">Upload File</a></li>
+        <li><a href={% url "login" %}>Login</a></li>
+
+        {% if user.is_authenticated %}
+            <li><a href="{% url "logout" %}">Logout</a></li>
+        {% else %}
+            <li><a href="{% url "register" %}">Register</a></li>
+        {% endif %}
+
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div>
+        TEST
+    </div>
+{% endblock %}

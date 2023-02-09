@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+            <h1> All data </h1>
+    {% for dict_obj in all_data %}
+        <h4> UUID: {{ dict_obj.uuid }}</h4>
+        <h4> Author: {{ dict_obj.author }}</h4>
+        <h4> Amazon url: {{ dict_obj.aws_url }}</h4>
+        <h4> File content: {{ dict_obj.data.to_html | safe }}</h4>
+    {% endfor %}
+{% endblock %}
+

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+{% block content %}
+    <body>
+    <form method="POST" class="post-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+    {% for error in errors %}
+        <p style="color: red"> Invalid uuid is: {{ error }}</p>
+    {% endfor %}
+
+    </body>
+{% endblock %}
+
+</html>
