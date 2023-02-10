@@ -59,5 +59,4 @@ AWS_S3_ENDPOINT_URL=
 4. Enjoy the product
 
 
-
 ## Taken time for this time was approximately 10h
