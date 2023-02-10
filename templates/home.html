@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-            <h1> All data </h1>
+        <h1 class="font-bold text-2xl mb-4"> All data </h1>
     {% for dict_obj in all_data %}
-        <h4> UUID: {{ dict_obj.uuid }}</h4>
-        <h4> Author: {{ dict_obj.author }}</h4>
-        <h4> Amazon url: {{ dict_obj.aws_url }}</h4>
-        <h4> File content: {{ dict_obj.data.to_html | safe }}</h4>
+        <h4 class="font-bold"> UUID: <span class="italic font-normal">{{ dict_obj.uuid }}</span></h4>
+        <h4 class="font-bold"> Author: <span class="italic font-normal">{{ dict_obj.author }}</span></h4>
+        <h4 class="font-bold"> Amazon url: <a href={{ dict_obj.aws_url }} target="_blank" class="text-indigo-600 hover:underline italic font-normal">{{ dict_obj.aws_url }}</a></h4>
+        <h4 class="font-bold"> File content: </h4>
+        <div class="data-table mt-4 mb-16">
+            {{ dict_obj.data.to_html | safe }}
+        </div>
     {% endfor %}
 {% endblock %}
 

@@ -2,26 +2,61 @@
 
 <head>
     <title>{% block title %} {% endblock %}</title>
-    {#TODO <link href="{% static css/base.css %}" rel="stylesheet">#}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .auth-form > div {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+        }
+        .auth-form > div > input {
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            margin-left: 1rem;
+        }
+
+        .data-table tr {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .data-table > table {
+            width: 100%;
+        }
+
+        .data-table th {
+            text-align: left;
+        }
+
+        .data-table tr td {
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .data-table tr:last-child {
+            border-bottom: none;
+        }
+    </style>
 </head>
 
 {% block navbar %}
-    <ul>
-        <li><a href="{% url "home" %}">My Files</a></li>
-        <li><a href="{% url "upload_file" %}">Upload File</a></li>
-        <li><a href={% url "login" %}>Login</a></li>
+    <ul class="flex items-center bg-gray-500 text-gray-50 space-x-4 px-2 py-5">
+        <li class="hover:text-indigo-300 hover:underline"><a href="{% url "home" %}">My Files</a></li>
+        <li class="hover:text-indigo-300 hover:underline"><a href="{% url "upload_file" %}">Upload File</a></li>
+        <li class="hover:text-indigo-300 hover:underline"><a href={% url "login" %}>Login</a></li>
 
         {% if user.is_authenticated %}
-            <li><a href="{% url "logout" %}">Logout</a></li>
+            <li class="hover:text-indigo-300 hover:underline"><a href="{% url "logout" %}">Logout</a></li>
         {% else %}
-            <li><a href="{% url "register" %}">Register</a></li>
+            <li class="hover:text-indigo-300 hover:underline"><a href="{% url "register" %}">Register</a></li>
         {% endif %}
 
     </ul>
 {% endblock %}
 
-{% block content %}
-    <div>
-        TEST
-    </div>
-{% endblock %}
+<div class="p-2">
+    {% block content %}
+        <div>
+            TEST
+        </div>
+    {% endblock %}
+</div>

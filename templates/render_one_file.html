@@ -9,7 +9,10 @@
 
 
 {% block content %}
-    {{ data.to_html | safe }}
+        <h1 class="font-bold text-2xl mb-4">File information</h1>
+        <div class="data-table mt-4 mb-16">
+            {{ data.to_html | safe }}
+        </div>
 {% endblock %}
 </body>
 </html>

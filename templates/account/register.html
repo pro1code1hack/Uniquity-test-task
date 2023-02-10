@@ -9,11 +9,12 @@
 <body>
 {% block content %}
 
+    <h1 class="font-bold text-2xl mb-4">Sign up</h1>
     {{ error }}
-    <form method="post">
-        {{ register_form.as_p }}
+    <form class="auth-form" method="post">
+        {{ register_form.as_div }}
         {% csrf_token %}
-        <p><input type="submit" value="Register"></p>
+        <input class="bg-indigo-600 text-gray-50 px-2 py-1 mt-2" type="submit" value="Register">
     </form>
 {% endblock %}
 </body>
